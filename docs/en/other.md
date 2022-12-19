@@ -166,6 +166,18 @@ Official Website: <https://news.yahoo.co.jp/pages/article/20200207>
 
 </RouteEn>
 
+## Panda
+
+### Feeds
+
+<RouteEn author="lyrl" example="/usepanda/feeds/5718e53e7a84fb1901e059cc" path="/usepanda/feeds/:id" :paramsDesc="['Feed ID']">
+
+| Channel                   | feedId                    |
+| -------------------- | ------------------------ |
+| Github | 5718e53e7a84fb1901e059cc |
+
+</RouteEn>
+
 ## Parcel Tracking
 
 ### Hermes UK
@@ -205,17 +217,19 @@ Official Website: <https://news.yahoo.co.jp/pages/article/20200207>
 
 <RouteEn author="sbilly" example="/sans/summit_archive" path="/sans/summit_archive" />
 
-## TransferWise
+## Trending Search Keyword Aggregator
 
-### FX Pair Yesterday
+### Aggregated Keyword Tracker
 
-<RouteEn author="HenryQW" example="/transferwise/pair/GBP/USD" path="/transferwise/pair/:source/:target" :paramsDesc="['Base currency abbreviation','Quote currency abbreviation']">
+Track entries containing specific keywords on major social media platforms.
 
-Refer to [the list of supported currencies](https://transferwise.com/tools/exchange-rate-alerts/).
+Current listings: *Weibo Search*、*Toutiao Search*、*Zhihu Search*、*Zhihu Videos*、*Zhihu Topics*。
 
-</RouteEn>
+Data Source: [trending-in-one](https://github.com/huqi-pr/trending-in-one)
 
-## TSSstatus（iOS downgrade channel）
+<RouteEn author="Jkker" example="/trending/taiwan/3" path="/trending/:keywords/:numberOfDays?" radar="1" :paramsDesc="['List of keywords separated by commas', 'Number of previous days (defaults to 3)']"/>
+
+## TSSstatus (iOS downgrade channel)
 
 ### Status
 
@@ -242,6 +256,16 @@ Type
 | All | Recommend |
 | --- | --------- |
 | all | rec       |
+
+</RouteEn>
+
+## Wise
+
+### FX Pair Yesterday
+
+<RouteEn author="HenryQW" example="/wise/pair/GBP/USD" path="/wise/pair/:source/:target" :paramsDesc="['Base currency abbreviation','Quote currency abbreviation']" radar="1">
+
+Refer to [the list of supported currencies](https://wise.com/tools/exchange-rate-alerts/).
 
 </RouteEn>
 

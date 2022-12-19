@@ -241,6 +241,10 @@ pageClass: routes
 
 </Route>
 
+### 作者
+
+<Route author="TonyRL" example="/91porn/author/2d6d2iWm4vVCwqujAZbSrKt2QJCbbaObv9HQ21Zo8wGJWudWBg" path="/91porn/author/:uid/:lang?" :paramsDesc="['作者 ID，可在 URL 中找到', '语言，见上表，默认 `en_US`']"  radar="1" rssbud="1" anticrawler="1" />
+
 ## 99% Invisible
 
 ### Transcript
@@ -516,69 +520,113 @@ BT 之家的域名会变更，本路由以 <https://www.btbtt20.com> 为默认�
 
 JavBus 有多个备用域名，本路由默认使用永久域名 <https://javbus.com> ，若该域名无法访问，可以通过在路由最后加上 `?domain=<域名>` 指定路由访问的域名。如指定备用域名为 <https://javsee.icu>，则在所有 JavBus 路由最后加上 `?domain=javsee.icu` 即可，此时路由为 [`/javbus?domain=javsee.icu`](https://rsshub.app/javbus?domain=javsee.icu)
 
-值得注意的是 **欧陆风云** 的域名与主域名有所不同，其备用域名亦然，本路由默认使用域名 <https://javbus.red> ，若该域名无法访问，可以通过在路由最后加上 `?western_domain=<域名>` 指定路由访问的域名。如指定备用域名为 <https://javsee.one>，则在所有 JavBus **欧陆风云** 路由最后加上 `?western_domain=javsee.one` 即可，此时路由为 [`/javbus/western?western_domain=javsee.one`](https://rsshub.app/javbus/western?western_domain=javsee.one)
+值得注意的是 **欧美** 的域名与主域名有所不同，其备用域名亦然，本路由默认使用域名 <https://javbus.org> ，若该域名无法访问，可以通过在路由最后加上 `?western_domain=<域名>` 指定路由访问的域名。如指定备用域名为 <https://javsee.one>，则在所有 JavBus **欧美** 路由最后加上 `?western_domain=javsee.one` 即可，此时路由为 [`/javbus/western?western_domain=javsee.one`](https://rsshub.app/javbus/western?western_domain=javsee.one)
 
 :::
 
-### 首页
+### 有码 - 首页
 
 <Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus" path="/javbus"/>
 
-### 分类
+### 有码 - 分类
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/genre/7g" path="/javbus/genre/:gid" :paramsDesc="['分类id，详见[网站里](https://www.javbus.com/genre)的链接']" />
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/genre/7g" path="/javbus/genre/:id" :paramsDesc="['分类 id，可在对应分类页 URL 中找到']">
 
-### 演员
+更多分类前往 [有碼類別 - 影片](https://www.javbus.com/genre)
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/star/2jv" path="/javbus/star/:sid" :paramsDesc="['演员id，详见[网站里](https://www.javbus.com/actresses)的链接']" />
+</Route>
 
-### 系列
+### 有码 - 演员
 
-<Route author="MegrezZhu CoderTonyChan Felix2yu" example="/javbus/series/44q" path="/javbus/series/:seriesid" :paramsDesc="['系列id，详见作品中系列的链接']" />
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/star/2jv" path="/javbus/star/:id" :paramsDesc="['演员 id，可在对应演员页 URL 中找到']">
 
-### 制作商
+更多演员前往 [有碼女優 - 影片](https://www.javbus.com/actresses)
 
-<Route author="MegrezZhu CoderTonyChan Felix2yu" example="/javbus/studio/ej" path="/javbus/studio/:studioid" :paramsDesc="['制作商id，详见作品右侧制作商的链接']" />
+</Route>
 
-### 发行商
+### 有码 - 系列
 
-<Route author="MegrezZhu CoderTonyChan Felix2yu" example="/javbus/label/x8" path="/javbus/label/:labelid" :paramsDesc="['发行商id，详见作品右侧发行商的链接']" />
+<Route author="MegrezZhu CoderTonyChan Felix2yu nczitzk" example="/javbus/series/44q" path="/javbus/series/:id" :paramsDesc="['系列 id，可在对应系列页 URL 中找到']" />
 
-### 导演
+### 有码 - 制作商
 
-<Route author="MegrezZhu CoderTonyChan Felix2yu" example="/javbus/director/4gv" path="/javbus/director/：directorId" :paramsDesc="['导演id，详见作品右侧导演的链接']" />
+<Route author="MegrezZhu CoderTonyChan Felix2yu nczitzk" example="/javbus/studio/ej" path="/javbus/studio/:id" :paramsDesc="['制作商 id，可在对应制作商页 URL 中找到']" />
 
-### 首页 / 步兵
+### 有码 - 发行商
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/uncensored/home" path="/javbus/uncensored/home"/>
+<Route author="MegrezZhu CoderTonyChan Felix2yu nczitzk" example="/javbus/label/x8" path="/javbus/label/:id" :paramsDesc="['发行商 id，可在对应发行商页 URL 中找到']" />
 
-### 分类 / 步兵
+### 有码 - 导演
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/uncensored/genre/1bc" path="/javbus/uncensored/genre/:gid" :paramsDesc="['分类id，详见[网站里](https://www.javbus.com/uncensored/genre)的链接']" />
+<Route author="MegrezZhu CoderTonyChan Felix2yu nczitzk" example="/javbus/director/4gv" path="/javbus/director/:id" :paramsDesc="['导演 id，可在对应导演页 URL 中找到']" />
 
-### 演员 / 步兵
+### 有码 - 搜索
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/uncensored/star/b5b" path="/javbus/uncensored/star/:sid" :paramsDesc="['演员id，详见[网站里](https://www.javbus.com/uncensored/actresses)的链接']" />
+<Route author="nczitzk" example="/javbus/search/REBD" path="/javbus/search/:keyword" :paramsDesc="['关键字，默认为空']" />
 
-### 系列 / 步兵
+### 无码 - 首页
 
-<Route author="MegrezZhu CoderTonyChan Felix2yu" example="/javbus/uncensored/series/1ft" path="/javbus/uncensored/series/:seriesid" :paramsDesc="['系列id，详见作品中系列的链接']" />
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/uncensored" path="/javbus/uncensored"/>
 
-### 首页 / 欧陆风云
+### 无码 - 分类
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/western" path="/javbus/western"/>
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/uncensored/genre/1bc" path="/javbus/uncensored/genre/:id" :paramsDesc="['分类 id，可在对应分类页 URL 中找到']">
 
-### 分类 / 欧陆风云
+更多分类前往 [無碼類別 - 影片](https://www.javbus.com/uncensored/genre)
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/western/genre/86" path="/javbus/western/genre/:gid" :paramsDesc="['分类id，详见[网站里](https://www.javbus.work/genre)的链接']" />
+</Route>
 
-### 演员 / 欧陆风云
+### 无码 - 演员
 
-<Route author="MegrezZhu CoderTonyChan" example="/javbus/western/star/4hv" path="/javbus/western/star/:sid" :paramsDesc="['演员id，详见[网站里](https://www.javbus.work/actresses)的链接']" />
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/uncensored/star/b5b" path="/javbus/uncensored/star/:id" :paramsDesc="['演员 id，可在对应演员页 URL 中找到']">
 
-### 系列 / 欧陆风云
+更多演员前往 [無碼女優 - 影片](https://www.javbus.com/uncensored/actresses)
 
-<Route author="MegrezZhu CoderTonyChan Felix2yu" example="/javbus/western/series/20" path="/javbus/western/series/:seriesid" :paramsDesc="['系列id，详见作品中系列的链接']" />
+</Route>
+
+### 无码 - 系列
+
+<Route author="MegrezZhu CoderTonyChan Felix2yu nczitzk" example="/javbus/uncensored/series/1ft" path="/javbus/uncensored/series/:id" :paramsDesc="['系列 id，可在对应系列页 URL 中找到']" />
+
+### 无码 - 制作商
+
+<Route author="MegrezZhu CoderTonyChan Felix2yu nczitzk" example="/javbus/uncensored/studio/3n" path="/javbus/uncensored/studio/:id" :paramsDesc="['制作商 id，可在对应制作商页 URL 中找到']" />
+
+### 无码 - 搜索
+
+<Route author="nczitzk" example="/javbus/uncensored/search/HEYZO" path="/javbus/uncensored/search/:keyword" :paramsDesc="['关键字，默认为空']" />
+
+### 欧美 - 首页
+
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/western" path="/javbus/western"/>
+
+### 欧美 - 分类
+
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/western/genre/86" path="/javbus/western/genre/:id" :paramsDesc="['分类 id，可在对应分类页 URL 中找到']">
+
+更多分类前往 [類別 - 影片](https://www.javbus.org/genre)
+
+</Route>
+
+### 欧美 - 演员
+
+<Route author="MegrezZhu CoderTonyChan nczitzk" example="/javbus/western/star/4hv" path="/javbus/western/star/:id" :paramsDesc="['演员 id，可在对应演员页 URL 中找到']">
+
+更多演员前往 [歐美演員 - 影片](https://www.javbus.org/actresses)
+
+</Route>
+
+### 欧美 - 系列
+
+<Route author="MegrezZhu CoderTonyChan Felix2yu nczitzk" example="/javbus/western/series/20" path="/javbus/western/series/:id" :paramsDesc="['系列 id，可在对应系列页 URL 中找到']" />
+
+### 欧美 - 制作商
+
+<Route author="nczitzk" example="/javbus/western/studio/4" path="/javbus/western/studio/:id" :paramsDesc="['制作商 id，可在对应制作商页 URL 中找到']" />
+
+### 欧美 - 搜索
+
+<Route author="nczitzk" example="/javbus/western/search/Brazzers" path="/javbus/western/search/:keyword" :paramsDesc="['关键字，默认为空']" />
 
 ## JavDB
 
@@ -900,19 +948,27 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 
 ### 搜索结果
 
-<Route author="Lava-Swimmer noname1897" example="/nyaa/search/psycho-pass" path="/nyaa/search/:query?" :paramsDesc="['搜索关键字']" supportBT="1" radar="1"/>
+<Route author="Lava-Swimmer noname1776" example="/nyaa/search/psycho-pass" path="/nyaa/search/:query?" :paramsDesc="['搜索关键字']" supportBT="1" radar="1"/>
 
 ### 用户
 
-<Route author="Lava-Swimmer noname1897" example="/nyaa/user/silver-khaie" path="/nyaa/user/:username?" :paramsDesc="['用户名']" supportBT="1" radar="1"/>
+<Route author="Lava-Swimmer noname1776" example="/nyaa/user/silver-khaie" path="/nyaa/user/:username?" :paramsDesc="['用户名']" supportBT="1" radar="1"/>
+
+### 对指定用户进行搜索
+
+<Route author="Lava-Swimmer noname1776" example="/nyaa/user/silver-khaie/search/a" path="/nyaa/user/:username/search/:query?" :paramsDesc="['用户名', '搜索关键词']" supportBT="1" radar="1"/>
 
 ### Sukebei 搜索结果
 
-<Route author="Lava-Swimmer noname1897" example="/nyaa/sukebei/search/hi" path="/nyaa/sukebei/search/:query?" :paramsDesc="['搜索关键字']" supportBT="1" radar="1"/>
+<Route author="Lava-Swimmer noname1776" example="/nyaa/sukebei/search/hi" path="/nyaa/sukebei/search/:query?" :paramsDesc="['搜索关键字']" supportBT="1" radar="1"/>
 
 ### Sukebei 用户
 
-<Route author="Lava-Swimmer noname1897" example="/nyaa/sukebei/user/Tarakara168" path="/nyaa/sukebei/user/:username?" :paramsDesc="['用户名']" supportBT="1" radar="1"/>
+<Route author="Lava-Swimmer noname1776" example="/nyaa/sukebei/user/Tarakara168" path="/nyaa/sukebei/user/:username?" :paramsDesc="['用户名']" supportBT="1" radar="1"/>
+
+### Sukebei 对指定用户进行搜索
+
+<Route author="Lava-Swimmer noname1776" example="/nyaa/sukebei/user/Tarakara168/search/a" path="/nyaa/sukebei/user/:username/search/:query?" :paramsDesc="['用户名', '搜索关键词']" supportBT="1" radar="1"/>
 
 ## OneJAV
 
@@ -1132,6 +1188,12 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 ### 播客
 
 <Route author="Fatpandac" example="/ajmide/10603594" path="/ajmide/:id" :paramsDesc="['播客 id，可以从播客页面 URL 中找到']" radar="1" rssbud="1"/>
+
+## 阿里云盘
+
+### 文件列表
+
+<Route author="DIYgod" example="/aliyundrive/files/XDFSyJ3J5wk/63035a070a078cf4e55e4b7ea3fd5bd269c4e41c" path="/aliyundrive/files/:share_id/:parent_file_id?" :paramsDesc="['分享 id，可以从分享页面 URL 中找到', '文件夹 id，可以从文件夹页面 URL 中找到']" radar="1" rssbud="1"/>
 
 ## 爱奇艺
 
@@ -1415,6 +1477,14 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 
 <Route author="nczitzk" example="/qingting/channel/293411" path="/qingting/channel/:id" :paramsDesc="['专辑id, 可在专辑页 URL 中找到']"/>
 
+### 播客
+
+<Route author="RookieZoe huyyi" example="/qingting/podcast/293411" path="/qingting/podcast/:id" :paramsDesc="['专辑id, 可在专辑页 URL 中找到']" radar="1" supportPodcast="1">
+
+获取的播放 URL 有效期只有 1 天，需要开启播客 APP 的自动下载功能。
+
+</Route>
+
 ## 秋爸日字
 
 ### 分类
@@ -1489,7 +1559,7 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 
 ## 时光网
 
-### 资讯
+### 时光新闻
 
 <Route author="TsSmartTT" example="/mtime/news" path="/mtime/news" radar="1" rssbud="1"/>
 
@@ -1602,9 +1672,55 @@ Tiny Tiny RSS 会给所有 iframe 元素添加 `sandbox="allow-scripts"` 属性�
 
 ## 云听
 
-### 电台节目
+### 专辑
 
-<Route author="kt286 nczitzk" example="/radio/1552135" path="/radio/:id" :paramsDesc="['节目ID，可在对应专辑页面的 URL 中找到']" supportPodcast="1"/>
+<Route author="nczitzk" example="/radio/album/15682090498666" path="/radio/album/:id" :paramsDesc="['专辑 id，可在对应专辑页面的 URL 中找到']" supportPodcast="1">
+
+如果订阅 [中国相声榜](https://www.radio.cn/pc-portal/sanji/detail.html?columnId=15682090498666)，其 URL 为 <https://www.radio.cn/pc-portal/sanji/detail.html?columnId=15682090498666>，可以得到 `columnId` 为 `15682090498666`
+
+所以对应路由为 [`/radio/album/15682090498666`](https://rsshub.app/radio/album/15682090498666)
+
+::: tip 提示
+
+部分专辑不适用该路由，此时可以尝试 [节目](#yun-ting-jie-mu) 路由
+
+:::
+
+</Route>
+
+### 节目
+
+<Route author="kt286 nczitzk" example="/radio/1552135" path="/radio/:id" :paramsDesc="['专辑 id，可在对应专辑页面的 URL 中找到']" supportPodcast="1">
+
+如果订阅 [共和国追梦人](http://www.radio.cn/pc-portal/sanji/detail.html?columnId=1552135)，其 URL 为 <https://www.radio.cn/pc-portal/sanji/detail.html?columnId=1552135>，可以得到 `columnId` 为 `1552135`
+
+所以对应路由为 [`/radio/1552135`](https://rsshub.app/radio/1552135)
+
+::: tip 提示
+
+该路由仅适用于更新时间较早的电台节目，如 [共和国追梦人](http://www.radio.cn/pc-portal/sanji/detail.html?columnId=1552135)
+
+与适用于 [专辑](#yun-ting-zhuan-ji) 路由的专辑其 `columnId` 长度相比，它们的 `columnId` 长度较短
+
+:::
+
+</Route>
+
+### 直播
+
+<Route author="nczitzk" example="/radio/zhibo/1395528" path="/radio/zhibo/:id" :paramsDesc="['直播 id，可在对应点播页面的 URL 中找到']" supportPodcast="1">
+
+如果订阅 [新闻和报纸摘要](http://www.radio.cn/pc-portal/sanji/zhibo\_2.html?name=1395528)，其 URL 为 <http://www.radio.cn/pc-portal/sanji/zhibo_2.html?name=1395528>，可以得到 `name` 为 `1395528`
+
+所以对应路由为 [`/radio/zhibo/1395528`](https://rsshub.app/radio/zhibo/1395528)
+
+::: tip 提示
+
+查看更多电台直播节目，可前往 [电台直播](http://www.radio.cn/pc-portal/erji/radioStation.html)
+
+:::
+
+</Route>
 
 ## 中国高清网
 
@@ -1615,6 +1731,34 @@ Tiny Tiny RSS 会给所有 iframe 元素添加 `sandbox="allow-scripts"` 属性�
 | 全部 | 蓝光     | 1080P | 720P | 3D | WEB-DL |
 | -- | ------ | ----- | ---- | -- | ------ |
 | 留空 | bluray | 1080p | 720p | 3d | webdl  |
+
+## 中文播客榜
+
+::: tip 提示
+
+可以通过指定 `limit` 参数确定榜单排名下限，默认为 250。
+
+若只查看榜单前 50，可在订阅 URL 后加入 `?limit=50`。
+
+即，以 [热门节目](https://xyzrank.com/#/) 为例，路由为[`/xyzrank?limit=50`](https://rsshub.app/xyzrank?limit=50)。
+
+:::
+
+### 热门节目
+
+<Route author="nczitzk" example="/xyzrank" path="/xyzrank"/>
+
+### 热门播客
+
+<Route author="nczitzk" example="/xyzrank/hot-podcasts" path="/xyzrank/hot-podcasts"/>
+
+### 新锐节目
+
+<Route author="nczitzk" example="/xyzrank/hot-episodes-new" path="/xyzrank/hot-episodes-new"/>
+
+### 新锐播客
+
+<Route author="nczitzk" example="/xyzrank/new-podcasts" path="/xyzrank/new-podcasts"/>
 
 ## 注视影视
 

@@ -4,6 +4,29 @@ pageClass: routes
 
 # Finance
 
+## Bloomberg
+
+### News
+
+<RouteEn author="bigfei" example="/bloomberg" path="/bloomberg/:site?" :paramsDesc="['Site, see below, News by default']" anticrawler="1">
+
+| Site | Name |
+| ---- | ---- |
+| / | News |
+| bpol | Politics |
+| bbiz | Business |
+| markets | Markets |
+| technology | Technology |
+| green | Green |
+| wealth | Wealth |
+| pursuits | Pursuits |
+| bview | Opinion |
+| equality | Equality |
+| businessweek | Businessweek |
+| citylab | CityLab |
+
+</RouteEn>
+
 ## CFD
 
 ### Indices Dividend Adjustment (GBP)
@@ -11,6 +34,16 @@ pageClass: routes
 <RouteEn author="HenryQW" example="/cfd/div_gbp" path="/cfd/div_gbp" />
 
 ## finviz
+
+### News
+
+<RouteEn author="nczitzk" example="/finviz" path="/finviz/:category?" :paramsDesc="['Category, see below, News by default']">
+
+| News | Blog |
+| ---- | ---- |
+| news | blog |
+
+</RouteEn>
 
 ### US Stock News
 
@@ -28,12 +61,26 @@ pageClass: routes
 
 </RouteEn>
 
+## Seeking Alpha
+
+### Summary
+
+<RouteEn author="TonyRL" example="/seekingalpha/TSM/transcripts" path="/seekingalpha/:symbol/:category?" :paramsDesc="['Stock symbol', 'Category, see below, `news` by default']" radar="1" rssbud="1">
+
+| Analysis | News | Transcripts | Press Releases | Related Analysis |
+| ------- | ------- | -------- | ---- | ------ |
+| analysis | news | transcripts | press-releases | related-analysis |
+
+</RouteEn>
+
 ## TokenInsight
+
 ::: tip Tips
 
 TokenInsight also provides official RSS, you can take a look at <https://api.tokeninsight.com/reference/rss>.
 
 :::
+
 ### Blogs
 
 <RouteEn author="fuergaosi233" example="/tokeninsight/blog/en" path="/tokeninsight/blog/:lang?" :paramsDesc="['Language, see below, Chinese by default']" />
@@ -53,6 +100,12 @@ Language:
 | zh      | en      |
 
 </RouteEn>
+
+## Unusual Whales
+
+### News Flow
+
+<RouteEn author="TonyRL" example="/unusualwhales/news" path="/unusualwhales/news" radar="1" rssbud="1" />
 
 ## World Economic Forum
 

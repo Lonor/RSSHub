@@ -10,6 +10,12 @@ pageClass: routes
 
 <RouteEn author="kt286" example="/archdaily" path="/archdaily"/>
 
+## CSDN
+
+### User Feed
+
+<RouteEn author="Jkker" example="/csdn/blog/csdngeeknews" path="/csdn/blog/:user" radar="1" :paramsDesc="['`user` is the username of a CSDN blog which can be found in the url of the home page']" />
+
 ## Google Sites
 
 ### Articles
@@ -58,6 +64,12 @@ pageClass: routes
 
 <RouteEn author="CitrusIce" example="/phrack" path="/phrack" />
 
+## Polkadot
+
+### Blog
+
+<RouteEn author="iceqing" example="/polkadot/blog" path="/polkadot/blog" />
+
 ## PolkaWorld
 
 ### Newest Articles
@@ -78,6 +90,12 @@ Limit the number of entries to be retrieved by adding `?limit=x` to the end of t
 
 <RouteEn author="chazeon" example="/stratechery" path="/stratechery" />
 
+## Uber
+
+### Engineering
+
+<RouteEn author="hulb" example="/uber/blog" path="/uber/blog/:maxPage?" :paramsDesc="['max number of pages to retrieve, default to 1 page at most']" />
+
 ## WordPress
 
 ### Blog
@@ -89,3 +107,4 @@ Limit the number of entries to be retrieved by adding `?limit=x` to the end of t
 ### Entry
 
 <RouteEn author="nczitzk" example="/yuzu-emu/entry" path="/yuzu-emu/entry" />
+

@@ -86,31 +86,37 @@ Software id
 
 Language
 
-| Language | key |
-| -------- | --- |
-| English | en |
-| 中文 (简体) | cn |
-| 中文 (繁體) | tw |
-| 日本語 | jp |
-| Русский | ru |
-| Español | es |
-| Français | fr |
-| Deutsch | de |
-| Italiano | it |
-| Slovenčina | sk |
-| Українська | uk |
-| Беларуская | be |
-| Dansk | da |
-| Polski | pl |
-| Português Brasileiro | br |
-| Čeština | cs |
-| Nederlands | nl |
-| Slovenščina| sl |
-| Türkçe| tr  |
-| ภาษาไทย | th |
-| 한국어 | kr |
+| Language             | key |
+| -------------------- | --- |
+| English              | en  |
+| 中文 (简体)          | cn  |
+| 中文 (繁體)          | tw  |
+| 日本語               | jp  |
+| Русский              | ru  |
+| Español              | es  |
+| Français             | fr  |
+| Deutsch              | de  |
+| Italiano             | it  |
+| Slovenčina           | sk  |
+| Українська           | uk  |
+| Беларуская           | be  |
+| Dansk                | da  |
+| Polski               | pl  |
+| Português Brasileiro | br  |
+| Čeština              | cs  |
+| Nederlands           | nl  |
+| Slovenščina          | sl  |
+| Türkçe               | tr  |
+| ภาษาไทย              | th  |
+| 한국어               | kr  |
 
 </RouteEn>
+
+## BlueStacks
+
+### BlueStacks 5 Release Notes
+
+<RouteEn author="TonyRL" example="/bluestacks/release/5" path="/bluestacks/release/5" radar="1" puppeteer="1"/>
 
 ## Brave
 
@@ -193,8 +199,8 @@ Use `library` as the `owner` for official images, such as <https://rsshub.app/do
 Language
 
 | Simplified Chinese | Traditional Chinese | English |
-| ------ | -------- | -------- |
-|  cn  |  tw  |  en  |
+| ------------------ | ------------------- | ------- |
+| cn                 | tw                  | en      |
 
 </RouteEn>
 
@@ -236,13 +242,35 @@ Language
 
 ### Script Update
 
-<RouteEn author="imlonghao" path="/greasyfork/:language/:domain?" example="/greasyfork/en/google.com" :paramsDesc="['language, located on the top right corner of Greasy Fork\'s search page, set to `all` for including all languages', 'the script\'s target domain']" />
+<RouteEn author="imlonghao" path="/greasyfork/:language/:domain?" example="/greasyfork/en/google.com" :paramsDesc="['language, located on the top right corner of Greasy Fork\'s search page, set to `all` for including all languages', 'the script\'s target domain']" radar="1" />
+
+### Script Version History
+
+<RouteEn author="miles170" example="/greasyfork/scripts/431691-bypass-all-shortlinks/versions" path="/greasyfork/scripts/:script/versions" :paramsDesc="['Script id, can be found in URL']" radar="1" />
+
+### Script Feedback
+
+<RouteEn author="miles170" example="/greasyfork/scripts/431691-bypass-all-shortlinks/feedback" path="/greasyfork/scripts/:script/feedback" :paramsDesc="['Script id, can be found in URL']" radar="1" />
 
 ## Hugo
 
 ### Release News
 
 <RouteEn author="maokwen" example="/hugo/releases" path="/hugo/releases"/>
+
+## iFi audio
+
+### Download Hub
+
+<RouteEn author="NavePnow" example="/ifi-audio/download/1503007035/44472" path="/ifi-audio/download/:val/:id" :paramsDesc="['product val', 'product id']"/>
+
+::: warning
+
+1.  Open <https://ifi-audio.com/download-hub> and the Network panel
+2.  Select the device and the corresponding serial number in the website and click Search
+3.  Find the last request named <https://ifi-audio.com/wp-admin/admin-ajax.php> in the Network panel, find out the val and id in the Payload panel, and fill in the url
+
+:::
 
 ## ImageMagick
 
@@ -258,9 +286,10 @@ Language
 
 ## Logseq
 
-### Changelog
-
-<RouteEn author="nczitzk" example="/logseq/changelog" path="/logseq/changelog"/>
+::: warning
+Logseq dev team has abandoned the [old website](https://logseq.com/blog).
+Please use <https://github.com/logseq/logseq/releases.atom> instead.
+:::
 
 ## MacKed
 
@@ -309,7 +338,7 @@ Refer to [#minecraft](/en/game.html#minecraft)
 
 ### Update
 
-见 [#Monster Hunter World](/en/game.html#monster-hunter-world)
+See [#Monster Hunter World](/en/game.html#monster-hunter-world)
 
 ## Neat Download Manager
 
@@ -321,7 +350,7 @@ Refer to [#minecraft](/en/game.html#minecraft)
 
 ### Switch System Update（Japan）
 
-见 [#nintendo](/game.html#nintendo)
+See [#nintendo](/game.html#nintendo)
 
 ## NPM
 
@@ -416,6 +445,12 @@ Refer to [#minecraft](/en/game.html#minecraft)
 
 <RouteEn author="nczitzk" example="/qttabbar/change-log" path="/qttabbar/change-log"/>
 
+## RemNote
+
+### Changelog
+
+<RouteEn author="TonyRL" example="/remnote/changelog" path="/remnote/changelog" radar="1" rssbud="1"/>
+
 ## RescueTime
 
 ### Release Notes
@@ -423,8 +458,8 @@ Refer to [#minecraft](/en/game.html#minecraft)
 <RouteEn author="nczitzk" example="/rescuetime/release-notes" path="/rescuetime/release-notes/:os?" :paramsDesc="['OS id, see below']">
 
 | Mac OS | Windows |
-| - | - |
-| mac | windows |
+| ------ | ------- |
+| mac    | windows |
 
 </RouteEn>
 
@@ -468,28 +503,28 @@ Refer to [#minecraft](/en/game.html#minecraft)
 
 Language
 
-| Id | Language            |
-| -- | ------------------- |
-| en | English             |
-| ru | Русский             |
-| ja | 日本語                 |
-| es | Español             |
-| tr | Türkçe              |
-| ko | 한국어                 |
-| it | Italiano            |
-| pt | Português do Brasil |
-| de | Deutsch             |
-| fr | Français            |
-| pl | Polski              |
-| id | Bahasa Indonesia    |
-| my | Bahasa Malaysia     |
-| tw | 繁體                  |
-| cn | 简体                  |
-| vi | Tiếng Việt          |
-| th | ภาษาไทย             |
-| sv | Svenska             |
-| ar | العربية             |
-| il | Hebrew              |
+| Id  | Language            |
+| --- | ------------------- |
+| en  | English             |
+| ru  | Русский             |
+| ja  | 日本語              |
+| es  | Español             |
+| tr  | Türkçe              |
+| ko  | 한국어              |
+| it  | Italiano            |
+| pt  | Português do Brasil |
+| de  | Deutsch             |
+| fr  | Français            |
+| pl  | Polski              |
+| id  | Bahasa Indonesia    |
+| my  | Bahasa Malaysia     |
+| tw  | 繁體                |
+| cn  | 简体                |
+| vi  | Tiếng Việt          |
+| th  | ภาษาไทย             |
+| sv  | Svenska             |
+| ar  | العربية             |
+| il  | Hebrew              |
 
 </RouteEn>
 
@@ -516,6 +551,12 @@ Language
 ### What's New
 
 <RouteEn author="nczitzk" example="/diskanalyzer/whats-new" path="/diskanalyzer/whats-new"/>
+
+## WziFile
+
+### Version History
+
+<RouteEn author="Fatpandac" example="/wizfile/updates" path="/wizfile/updates"/>
 
 ## X410
 
