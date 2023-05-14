@@ -426,7 +426,7 @@ BT 之家的域名会变更，本路由以 <https://www.btbtt20.com> 为默认�
 
 ### 剧集订阅
 
-<Route author="savokiss" example="/domp4/detail/LBTANI22222I" path="/domp4/detail/:id" :paramsDesc="['从剧集详情页 URL 处获取，如：`https://www.domp4.cc/html/LBTANI22222I.html`，取 `.html` 前面部分']" radar="1" supportBT="1"/>
+<Route author="savokiss" example="/domp4/detail/LBTANI22222I" path="/domp4/detail/:id" :paramsDesc="['从剧集详情页 URL 处获取，如：`https://www.mp4kan.com/html/LBTANI22222I.html`，取 `.html` 前面部分']" radar="1" supportBT="1"/>
 
 :::tip
 由于大部分详情页是 `/html/xxx.html`，还有部分是 `/detail/123.html`，所以此处做了兼容，id 取 `xxx` 或者 `123` 都可以。
@@ -523,6 +523,26 @@ BT 之家的域名会变更，本路由以 <https://www.btbtt20.com> 为默认�
 ### 近期更新
 
 <Route author="everyonus" example="/hentaimama/videos" path="/hentaimama/videos" />
+
+## IBC 岩手放送
+
+### イヤーマイッタマイッタ
+
+<Route author="fengkx" example="/ibc/maitta" path="/ibc/maitta" supportPodcast="1" radar="1"/>
+
+### ラジオ
+
+<Route author="nczitzk" example="/ibc/radio/maitta" path="/ibc/radio/:id?" :paramsDesc="['节目 id, 可在节目页 URL 中找到，默认为 イヤーマイッタマイッタ']" supportPodcast="1">
+
+::: tip 提示
+
+若订阅 [イヤーマイッタマイッタ](https://www.ibc.co.jp/radio/maitta/audio)，网址为 <https://www.ibc.co.jp/radio/maitta/audio>。截取 `https://www.ibc.co.jp/radio/` 到末尾的部分 `/audio/` 之间的 `maitta` 作为参数，此时路由为 [`/ibc/radio/maitta`](https://rsshub.app/ibc/radio/maitta)。
+
+若订阅 [火曜ワイド「境界トラブル解決ラジオ！」](https://www.ibc.co.jp/radio/TochiKyokai/audio)，网址为 <https://www.ibc.co.jp/radio/TochiKyokai/audio>。截取 `https://www.ibc.co.jp/radio/` 到末尾的部分 `/audio/` 之间的 `TochiKyokai` 作为参数，此时路由为 [`/ibc/radio/TochiKyokai`](https://rsshub.app/ibc/radio/TochiKyokai)。
+
+:::
+
+</Route>
 
 ## JavBus
 
@@ -960,7 +980,7 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 
 ### 指定剧集
 
-<Route author="nczitzk" example="/newzmz/view/qEzRyY3v" path="/newzmz/view/:id?" :paramsDesc="['剧集 id，可在剧集下载页 URL 中找到']">
+<Route author="nczitzk" example="/newzmz/qEzRyY3v" path="/newzmz/:id?" :paramsDesc="['剧集 id，可在剧集下载页 URL 中找到']">
 
 如：雪国列车（剧版）的下载页 URL 为 `https://ysfx.tv/view/qEzRyY3v.html`，即剧集 id 为 `qEzRyY3v`。
 
@@ -1179,6 +1199,46 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 
 </Route>
 
+## The Movie Database
+
+::: tip 提示
+路由中的语言参数可参考 <https://developers.themoviedb.org/3/getting-started/languages>。
+:::
+
+### 系列
+
+<Route author="x2cf" example="/themoviedb/collection/131292/zh" path="/themoviedb/collection/:id/:lang?" :paramsDesc="['系列 ID', '语言']" radar="1" rssbud="1" />
+
+### 热门
+
+<Route author="x2cf" example="/themoviedb/trending/tv/day/zh" path="/themoviedb/trending/:mediaType/:timeWindow/:lang?" :paramsDesc="['`movie` 或 `tv`', '`day` 或 `week`', '语言']" radar="1" rssbud="1" />
+
+### 剧集系列
+
+<Route author="x2cf" example="/themoviedb/tv/70593/seasons/zh" path="/themoviedb/tv/:id/seasons/:lang?" :paramsDesc="['剧集 ID', '语言']" radar="1" rssbud="1" />
+
+### 剧集章节
+
+<Route author="x2cf" example="/themoviedb/tv/70593/seasons/1/episodes/zh" path="/themoviedb/tv/:id/seasons/:seasonNumber/episodes/:lang?" :paramsDesc="['剧集 ID', '季号', '语言']" radar="1" rssbud="1" />
+
+### 片单
+
+<Route author="x2cf" example="/themoviedb/tv/top-rated/zh" path="/themoviedb/:mediaType/:sheet/:lang?" :paramsDesc="['`movie` 或 `tv`', '片单，见下表', '语言']" radar="1" rssbud="1">
+
+当 `mediaType` 为 `tv` 时，`sheet` 的值如下：
+
+| 今日播出     | 电视播出中 | 高分      |
+| ------------ | ---------- | --------- |
+| airing-today | on-the-air | top-rated |
+
+当 `mediaType` 为 `movie` 时，`sheet` 的值如下：
+
+| 正在上映    | 即将上映 | 高分      |
+| ----------- | -------- | --------- |
+| now-playing | upcoming | top-rated |
+
+</Route>
+
 ## Trakt.tv
 
 ### 用户收藏
@@ -1317,12 +1377,6 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 
 </Route>
 
-## 播客 IBC 岩手放送｜ IBC ラジオ　イヤーマイッタマイッタ
-
-### IBC 岩手放送｜ IBC ラジオ　イヤーマイッタマイッタ
-
-<Route author="fengkx" example="/maitta" path="/maitta" supportPodcast="1" />
-
 ## 草榴社区
 
 ### 分区帖子
@@ -1438,6 +1492,10 @@ JavDB 有多个备用域名，本路由默认使用永久域名 <https://javdb.c
 ### 首页
 
 <Route author="sanmmm" example="/storyfm/index" path="/storyfm/index"/>
+
+### 播客
+
+<Route author="nczitzk" example="/storyfm/episodes" path="/storyfm/episodes" supportPodcast="1"/>
 
 ## 开眼
 

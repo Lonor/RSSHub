@@ -10,6 +10,16 @@ pageClass: routes
 
 <Route author="HenryQW" example="/allpoetry/newest" path="/allpoetry/:order?" :paramsDesc="['排序方式, `best` 或 `newest`, 缺省 `best`']"/>
 
+## Free Computer Books
+
+### 精选上新
+
+<Route author="cubroe" example="/freecomputerbooks" path="/freecomputerbooks" radar="1" />
+
+### 当前书单
+
+<Route author="cubroe" example="/freecomputerbooks/compscAlgorithmBooks" path="/freecomputerbooks/:category" :paramsDesc="['分类标识符，为源站URL路径中的HTML文件名（去除`.html`后缀）']" radar="1" />
+
 ## hameln
 
 ### 章节更新
@@ -34,6 +44,13 @@ pageClass: routes
 举例网址: <https://www.inoreader.com/stream/user/1006346356/tag/News/view/html?n=3>
 
 </Route>
+
+### RSS
+
+<Route author="NavePnow" example="/inoreader/rss/1005137674/user-favorites" path="/inoreader/rss/:user/:tag" :paramsDesc="[
+'用户 id, 即举例网址 URL 中的 user/ 后的数字',
+'标签名, 即举例网址 URL 中的 tag/ 后的内容'
+]">
 
 ## kakuyomu
 
@@ -306,7 +323,7 @@ For instance, when doing search at <https://magazinelib.com/> and you get url <h
 
 ### 单读
 
-<Route author="KeNorizon" example="/owspace/read/0" path="/owspace/read/:type?" :paramsDesc="['栏目分类，不填则默认为首页']">
+<Route author="imkero" example="/owspace/read/0" path="/owspace/read/:type?" :paramsDesc="['栏目分类，不填则默认为首页']">
 
 | 首页 | 文字 | 影像 | 声音 | 单向历 | 谈论 |
 | ---- | ---- | ---- | ---- | ------ | ---- |

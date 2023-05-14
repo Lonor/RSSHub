@@ -256,30 +256,6 @@ pageClass: routes
 
 </Route>
 
-## i-CABLE 有線新聞
-
-<Route author="tpnonthealps" example="/icable/all" path="/icable/:category/:option?" :paramsDesc="['栏目', '选项（不指定时预设为「全文输出 （含题图）」的 `withphoto` ）']">
-
-细则：
-
--   `:category` 栏目参数：
-
-    -   `all`: 全站
-    -   `local`: 港聞
-    -   `international`: 兩岸國際
-    -   `china`: 有線中國組
-    -   `sports`: 體育
-
--   `:option?` 可开启的选项：
-
-    -   `plain`: 全文输出为纯文字
-    -   `brief`: 输出为 100 字简讯
-
--   全文输出转换为简体字：`?opencc=t2s`
-    (`opencc` 是 RSSHub 的通用参数，详情请参阅 [「中文简繁体转换」](https://docs.rsshub.app/parameter.html#zhong-wen-jian-fan-ti-zhuan-huan))
-
-</Route>
-
 ## NHK
 
 ### News Web Easy
@@ -424,46 +400,6 @@ Solidot 提供的 feed:
 | 全部 | 创业    | Linux | 科学    | 科技       | 移动   | 苹果  | 硬件     | 软件     | 安全     | 游戏  | 书籍  | ask | idle | 博客 | 云计算 | 奇客故事 |
 | ---- | ------- | ----- | ------- | ---------- | ------ | ----- | -------- | -------- | -------- | ----- | ----- | --- | ---- | ---- | ------ | -------- |
 | www  | startup | linux | science | technology | mobile | apple | hardware | software | security | games | books | ask | idle | blog | cloud  | story    |
-
-</Route>
-
-## Telecompaper
-
-### News
-
-<Route author="nczitzk" example="/telecompaper/news/mobile/2020/China/News" path="/telecompaper/news/:caty/:year?/:country?/:type?" :paramsDesc="['分类，见下表', '年份，可在所选分类页中 Filter 的 `Years` 选择器中选择相应年份，不限年份则填入 `all`，默认为不限', '国家或大洲，可在所选分类页中 Filter 的 `Countries` 选择器中选择相应国家或大洲，不限国家或大洲则填入 `all`，默认为不限', '类型，可在所选分类页中 Filter 的 `Types` 选择器中选择相应类型，不限类型则填入 `all`，默认为不限']">
-
-可选分类如下
-
-| WIRELESS | BROADBAND | VIDEO     | GENERAL | IT | INDUSTRY RESOURCES |
-| -------- | --------- | --------- | ------- | -- | ------------------ |
-| mobile   | internet  | boardcast | general | it | industry-resources |
-
-::: tip 提示
-
-若 `country` 或 `type` 参数包含空格，则用 `-` 替代。如 `United States` 更换为 `United-States`，`White paper` 更换为 `White-paper`
-
-[INDUSTRY RESOURCES](https://www.telecompaper.com/industry-resources) 分类页的 Filter 仅提供了 `Content Type` 选择器，对应路由中 `type` 参数。`year` 和 `country` 参数则对该分类无效。
-
-:::
-
-</Route>
-
-### Search
-
-<Route author="nczitzk" example="/telecompaper/search/Nokia" path="/telecompaper/search/:keyword?/:company?/:sort?/:period?" :paramsDesc="['关键词', '公司名，默认为不限', '排序，见下表，默认为 Date Descending', '发表在时间段内，默认为 12 months']">
-
-排序
-
-| Date Ascending | Date Descending |
-| -------------- | --------------- |
-| 1              | 2               |
-
-发表在时间段内
-
-| 1 month | 3 months | 6 months | 12 months | 24 months |
-| ------- | -------- | -------- | --------- | --------- |
-| 1       | 3        | 6        | 12        | 24        |
 
 </Route>
 
@@ -1124,15 +1060,44 @@ IT・科学 tech_science
 
 </Route>
 
-### 新花城（广州市融媒体中心）
+## 广州市融媒体中心
 
-<Route author="TimWu007" example="/gzdaily/cmc/shouye" path="/gzdaily/cmc/:channel?" :paramsDesc="['频道名']">
+### 频道
 
-::: tip 提示
+<Route author="TimWu007" example="/gz-cmc/huacheng/shouye" path="/gz-cmc/:site/:channel?" :paramsDesc="['站点代码', '频道代码']">
 
-`频道名（channel）` 可在对应频道 url 后的参数中获取，如 `首页` 的栏目 url 为`https://huacheng.gz-cmc.com/channel/shouye/index.html`, `频道名` 即为 `shouye`。
+已知支持的站点及对应的`站点代码`如下：
 
-:::
+|                       站点 / 客户端名                      |     营运机构     |                      代码                      |
+| :--------------------------------------------------------: | :--------------: | :--------------------------------------------: |
+|          [新花城](https://www.gz-cmc.com "新花城")         |    广州日报社    |                   `huacheng`                   |
+| [广州白云](https://guangzhoubaiyun.gz-cmc.com/ "广州白云") | 白云区融媒体中心 |                `guangzhoubaiyun`               |
+|                          到黄埔去                          | 黄埔区融媒体中心 |                 `daohuangpuqu`                 |
+|                          掌上番禺                          | 番禺区融媒体中心 | `zhangshangfanyu` <br />（注：此处非笔误 = =） |
+|                           阅增城                           | 增城区融媒体中心 |                 `yuezengcheng`                 |
+
+如有上表未列出的站点，欢迎补充。
+
+`频道代码`获取方式：
+
+1.  在对应频道 url 后的参数中获取，如`首页`的栏目 url 为`https://huacheng.gz-cmc.com/channel/shouye/index.html`, `频道代码`即为`shouye`。
+2.  进入相应站点的客户端后抓包。
+
+黄埔、增城、番禺三区的站点无网页，需采用抓包的方式获取频道代码。现列出部分：
+
+|           频道名           |   代码   |
+| :------------------------: | :------: |
+|         黄埔 - 首页        |   `sy`   |
+| 黄埔 -《湾区时报》最新一期 |  `hpxsd` |
+|         黄埔 - 民生        |   `ms`   |
+|        黄埔 - 企明星       |   `qmx`  |
+|         增城 - 首页        | `shouye` |
+|         增城 - 身边        |   `sb`   |
+|         增城 - 本地        |  `zcfb`  |
+|         番禺 - 首页        | `shouye` |
+|         番禺 - 身边        |   `yw`   |
+|         番禺 - 生活        |   `sh`   |
+|         番禺 - 教育        |   `jy`   |
 
 </Route>
 
@@ -1629,6 +1594,57 @@ category 对应的关键词有
 
 </Route>
 
+## 南方都市报
+
+### 奥一网
+
+<Route author="TimWu007" example="/oeeee/web/170" path="/oeeee/web/:channel" :paramsDesc="['频道 ID']">
+
+-   若在桌面端打开奥一网栏目页（如 <https://www.oeeee.com/api/channel.php?s=/index/index/channel/gz），可查看该页源代码，搜索> `OECID`。
+-   若在移动端打开奥一网栏目页（格式例：<https://m.oeeee.com/m.php?s=/m2/channel&channel_id=169），即可从> url 中获取。需注意的是，如果该栏目页的 url 格式为 <https://m.oeeee.com/detailChannel_indexData.html?channel_id=266> ，则 `266` 并非为本路由可用的频道 ID，建议从桌面端获取。
+
+</Route>
+
+### 南都客户端（按南都号 ID）
+
+<Route author="TimWu007" example="/oeeee/app/channel/50" path="/oeeee/app/channel/:id?" :paramsDesc="['南都号 ID']">
+
+南都号的 UID 可通过 `m.mp.oeeee.com` 下的文章页面获取。点击文章上方的南都号头像，进入该南都号的个人主页，即可从 url 中获取。
+
+</Route>
+
+### 南都客户端（按记者）
+
+<Route author="TimWu007" example="/oeeee/app/reporter/249" path="/oeeee/app/reporter/:id" :paramsDesc="['记者 UID']">
+
+记者的 UID 可通过 `m.mp.oeeee.com` 下的文章页面获取。点击文章下方的作者头像，进入该作者的个人主页，即可从 url 中获取。
+
+</Route>
+
+## 南方网
+
+### 南方 +（按栏目 ID）
+
+<Route author="TimWu007" example="/southcn/nfapp/column/38" path="/southcn/nfapp/column/:column?" :paramsDesc="['栏目或南方号 ID']">
+
+::: tip 提示
+若此处输入的是栏目 ID（而非南方号 ID），则该接口会返回与输入栏目相关联栏目的文章。例如，输入栏目 ID `38`（广州），则返回的结果还会包含 ID 为 `3547`（市长报道集）的文章。
+:::
+
+1.  `pc.nfapp.southcn.com` 下的文章页面，可通过 url 查看，例：<http://pc.nfapp.southcn.com/13707/7491109.html> 的栏目 ID 为 `13707`。
+2.  `static.nfapp.southcn.com` 下的文章页面，可查看网页源代码，搜索 `columnid`。
+3.  <https://m.nfapp.southcn.com/column/all> 列出了部分栏目，`id` 即为栏目 ID。
+
+</Route>
+
+### 南方 +（按作者）
+
+<Route author="TimWu007" example="/southcn/nfapp/reporter/969927791" path="/southcn/nfapp/reporter/:reporter" :paramsDesc="['作者 UUID']">
+
+作者的 UUID 只可通过 `static.nfapp.southcn.com` 下的文章页面获取。点击文章下方的作者介绍，进入该作者的个人主页，即可从 url 中获取。
+
+</Route>
+
 ## 南方周末
 
 ### 新闻分类
@@ -2039,6 +2055,26 @@ category 对应的关键词有
 
 <Route author="rainrdx" example="/nikkei/asia" path="/nikkei/asia" radar="1"/>
 
+## 三立新聞網
+
+### 新聞
+
+<Route author="nczitzk" example="/setn" path="/setn/:category?" :paramsDesc="['分类，见下表，默认为即時']">
+
+| 即時 | 熱門 | 娛樂 | 政治 | 社會 |
+| ---- | ---- | ---- | ---- | ---- |
+
+| 國際 | 兩岸 | 生活 | 健康 | 旅遊 |
+| ---- | ---- | ---- | ---- | ---- |
+
+| 運動 | 地方 | 財經 | 富房網 | 名家 |
+| ---- | ---- | ---- | ------ | ---- |
+
+| 新奇 | 科技 | 汽車 | 寵物 | 女孩 | HOT 焦點 |
+| ---- | ---- | ---- | ---- | ---- | -------- |
+
+</Route>
+
 ## 厦门网
 
 ### 数字媒体
@@ -2217,28 +2253,6 @@ category 对应的关键词有
 
 </Route>
 
-## 香港 01
-
-### 热门
-
-<Route author="hoilc Fatpandac nczitzk" example="/hk01/hot" path="/hk01/hot" radar="1" rssbud="1"/>
-
-### 栏目
-
-<Route author="hoilc Fatpandac nczitzk" example="/hk01/zone/11" path="/hk01/zone/:id" :paramsDesc="['栏目 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
-
-### 子栏目
-
-<Route author="hoilc Fatpandac nczitzk" example="/hk01/channel/391" path="/hk01/channel/:id" :paramsDesc="['子栏目 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
-
-### 专题
-
-<Route author="hoilc Fatpandac nczitzk" example="/hk01/issue/649" path="/hk01/issue/:id" :paramsDesc="['专题 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
-
-### 标签
-
-<Route author="hoilc Fatpandac nczitzk" example="/hk01/tag/2787" path="/hk01/tag/:id" :paramsDesc="['标签 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
-
 ## 香港電台
 
 ### 新聞
@@ -2374,36 +2388,6 @@ category 对应的关键词有
 ### 浙江新闻联播 - 每日合集
 
 <Route author="yhkang" example="/cztv/zjxwlb/daily" path="/cztv/zjxwlb/daily" />
-
-## 新浪科技
-
-### 科学探索
-
-<Route author="LogicJake" example="/sina/discovery/zx" path="/sina/discovery/:type" :paramsDesc="['订阅分区类型']">
-
-分类：
-
-| zx   | twhk     | dwzw     | zrdl     | lskg     | smyx     | shbk     | kjqy     |
-| ---- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 最新 | 天文航空 | 动物植物 | 自然地理 | 历史考古 | 生命医学 | 生活百科 | 科技前沿 |
-
-</Route>
-
-### 滚动新闻
-
-<Route author="xyqfer" example="/sina/rollnews" path="/sina/rollnews" />
-
-## 新浪体育
-
-### 综合
-
-<Route author="nczitzk" example="/sina/sports/volley" path="/sina/sports/:type" :paramsDesc="['运动类型，见下表']">
-
-| 排球   | 游泳 | 乒乓球   | 羽毛球 | 台球    | 田径     | 体操  | 冰雪   | 射击 | 马术  | 拳击搏击 | UFC | 其他   |
-| ------ | ---- | -------- | ------ | ------- | -------- | ----- | ------ | ---- | ----- | -------- | --- | ------ |
-| volley | swim | pingpang | badmin | snooker | tianjing | ticao | winter | sh   | mashu | kungfu   | ufc | others |
-
-</Route>
 
 ## 新唐人电视台
 
@@ -2548,6 +2532,17 @@ category 对应的关键词有
 
 </Route>
 
+## 有線寬頻 i-CABLE
+
+### 有線新聞 | Cable News
+
+<Route author="tpnonthealps" example="/i-cable" path="/i-cable/:category?" :paramsDesc="['分類，頁面內紅色標籤，下表僅列出部分，留空為全部']" radar="1">
+
+| 新聞資訊 | 財經資訊 | 港聞 | 兩岸國際 | 中國在線 | 體育 | 娛樂 |
+| -------- | -------- | ---- | -------- | -------- | ---- | ---- |
+
+</Route>
+
 ## 浙江在线
 
 ### 浙报集团系列报刊
@@ -2564,12 +2559,18 @@ category 对应的关键词有
 
 ### 播客
 
-<Route author="5upernova-heng" example="/cgtn/podcast/ezfm/4" path="/cgtn/podcast/:category/:id" :paramsDesc="['类型名','播客 id']" radar=1> 
+<Route author="5upernova-heng" example="/cgtn/podcast/ezfm/4" path="/cgtn/podcast/:category/:id" :paramsDesc="['类型名','播客 id']" radar=1>
 
 > 类型名与播客 id 可以在播客对应的 URL 中找到
 > 如 URL `https://radio.cgtn.com/podcast/column/ezfm/More-to-Read/4` ，其 `category` 为 `ezfm` ，`id` 为 `4`，对应的订阅路由为 [`/podcast/ezfm/4`](https://rsshub.app/podcast/ezfm/4)
 
 </Route>
+
+## 中国科技网
+
+### 科技日报
+
+<Route author="lyqluis" example="/stdaily/digitalpaper" path="/stdaily/digitalpaper" />
 
 ## 中国日报
 

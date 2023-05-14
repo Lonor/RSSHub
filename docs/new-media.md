@@ -816,11 +816,11 @@ Tag
 
 <Route author="loganrockmore" example="/letterboxd/user/followingdiary/demiadejuyigbe" path="/letterboxd/user/followingdiary/:username" :paramsDesc="['username']" />
 
-## Line
+## LINE
 
-### Today
+### TODAY
 
-<Route author="nczitzk" example="/line/today" path="/line/today/:edition?/:tab?" :paramsDesc="['版本，见下表，默认为 Taiwan', '标签, 可在对应标签页的地址中找到, 默认为 top']">
+<Route author="nczitzk" example="/line/today" path="/line/today/:edition?/:tab?" :paramsDesc="['版本，见下表，默认为 Taiwan', '标签, 可在对应标签页的地址中找到, 默认为 `top`']" radar="1">
 
 Edition
 
@@ -829,6 +829,10 @@ Edition
 | tw     | th       | hk        |
 
 </Route>
+
+### TODAY - 频道
+
+<Route author="TonyRL" example="/line/today/tw/publisher/101286" path="/line/today/:edition/publisher/:id" :paramsDesc="['版本，见上表', '频道 ID，可在 URL 中找到']" radar="1"/>
 
 ## LVV2
 
@@ -1032,6 +1036,14 @@ IPFS 网关有可能失效，那时候换成其他网关。
 
 </Route>
 
+### ChatGPT - Release Notes
+
+<Route author="ETiV" example="/openai/chatgpt/release-notes" path="/openai/chatgpt/release-notes" />
+
+### Research
+
+<Route author="yuguorui" example="/openai/research" path="/openai/research" />
+
 ## OR
 
 ### 频道
@@ -1222,12 +1234,6 @@ IPFS 网关有可能失效，那时候换成其他网关。
 | topic    | news     | tech     | blockchain | daily    |
 
 </Route>
-
-## RSS3
-
-### Blog
-
-<Route author="nczitzk" example="/rss3/blog" path="/rss3/blog"/>
 
 ## Samsung
 
@@ -1539,6 +1545,17 @@ Supported sub-sites:
 
 <Route author="AlexdanerZe TonyRL" example="/zaker/focusread" path="/zaker/focusread" />
 
+## 阿里研究院
+
+### 资讯
+
+<Route author="nczitzk" example="/aliresearch/information" path="/aliresearch/information/:type?" :paramsDesc="['类型，见下表，默认为新闻']">
+
+| 新闻 | 观点 | 案例 |
+| ---- | ---- | ---- |
+
+</Route>
+
 ## 艾莱资讯
 
 ### 世界轨道交通资讯网
@@ -1722,6 +1739,26 @@ Supported sub-sites:
 ### 分类
 
 <Route author="emdoe" example="/twreporter/category/reviews" path="/twreporter/category/:tid" :paramsDesc="['分类（议题）名称，于主页获取']"/>
+
+## 北京市科学技术协会
+
+### 通用
+
+<Route author="nczitzk" example="/bast/col/col31266" path="/bast/:path+" :paramsDesc="['路径，默认为通知公告']">
+
+::: tip 提示
+
+路径处填写对应页面 URL 中 `https://www.bast.net.cn/` 后的字段。下面是两个例子。
+
+若订阅 [通知公告](https://www.bast.net.cn/col/col31266) 则将对应页面 URL <https://www.bast.net.cn/col/col31266> 中 `https://www.bast.net.cn/` 后的字段 `col/col31266` 作为路径填入。此时路由为 [`/bast/col/col31266`](https://rsshub.app/bast/col/col31266)
+
+若订阅 [学术动态](https://www.bast.net.cn/col/col31530) 则将对应页面 URL <https://www.bast.net.cn/col/col31530> 中 `https://www.bast.net.cn/` 后的字段 `col/col31530` 作为路径填入。此时路由为 [`/bast/col/col31530`](https://rsshub.app/bast/col/col31530)
+
+如果路由符合 `/col/colXXXXX` 的格式，可以由 [`/bast/col/col31266`](https://rsshub.app/bast/col/col31266) 精简为 [`/bast/31266`](https://rsshub.app/bast/31266)
+
+:::
+
+</Route>
 
 ## 北屋
 
@@ -2989,6 +3026,33 @@ column 为 third 时可选的 category:
 
 <Route author="nczitzk" example="/6park/chan1/keywords/都市" path="/6park/:id/keywords/:keyword?" :paramsDesc="['分站，见上表', '关键字']"/>
 
+### 新闻栏目
+
+<Route author="nczitzk" example="/6park/news" path="/6park/news/:site?/:id?" :paramsDesc="['分站，见下表，默认为 newspark', '栏目 id']">
+
+分站
+
+| newspark | local |
+| -------- | ----- |
+
+::: tip 提示
+
+若订阅 [时政](https://www.6parknews.com/newspark/index.php?type=1)，其网址为 <https://www.6parknews.com/newspark/index.php?type=1>，其中 `newspark` 为分站，`1` 为栏目 id。
+
+若订阅 [美国](https://local.6parknews.com/index.php?type_id=1)，其网址为 <https://local.6parknews.com/index.php?type_id=1>，其中 `local` 为分站，`1` 为栏目 id。
+
+:::
+
+</Route>
+
+### 头条精选
+
+<Route author="nczitzk" example="/6park/news/newspark/gold" path="/6park/news/newspark/gold"/>
+
+### 新闻搜索
+
+<Route author="nczitzk" example="/6park/news/newspark/keywords/搜索" path="/6park/news/newspark/keywords/:keyword?" :paramsDesc="['关键字']"/>
+
 ## 隆众资讯
 
 ### 资讯
@@ -3319,25 +3383,37 @@ column 为 third 时可选的 category:
 
 ### 话题动态
 
-<Route author="sanmmm" path="/pingwest/tag/:tag/:type" example="/pingwest/tag/ChinaJoy/1" :paramsDesc="['话题名或话题id, 可从话题页url中得到', '内容类型']">
+<Route author="sanmmm" path="/pingwest/tag/:tag/:type/:option?" example="/pingwest/tag/ChinaJoy/1" :paramsDesc="['话题名或话题id, 可从话题页url中得到', '内容类型', '参数, 默认无']">
 
 内容类型
 
-| 最新 | 最热 |
+| 最新 | 热门 |
 | ---- | ---- |
 | 1    | 2    |
+
+参数
+
+-   `fulltext`，全文输出，例如：`/pingwest/tag/ChinaJoy/1/fulltext`
+
+::: tip 提示
+该路由一次最多显示 30 条文章
+:::
 
 </Route>
 
 ### 用户
 
-<Route author="sanmmm" path="/pingwest/user/:uid/:type?" example="/pingwest/user/7781550877/article" :paramsDesc="['用户id, 可从用户主页中得到', '内容类型, 默认为`article`']">
+<Route author="sanmmm" path="/pingwest/user/:uid/:type?/:option?" example="/pingwest/user/7781550877/article" :paramsDesc="['用户id, 可从用户主页中得到', '内容类型, 默认为`article`', '参数']">
 
 内容类型
 
 | 文章    | 动态  |
 | ------- | ----- |
 | article | state |
+
+参数
+
+-   `fulltext`，全文输出，例如：`/pingwest/user/7781550877/article/fulltext`
 
 </Route>
 
@@ -4077,6 +4153,10 @@ wechat-feeds 来源[已停止更新](https://github.com/hellodword/wechat-feeds/
 
 </Route>
 
+### 公众号（搜狗来源）
+
+<Route author="NavePnow" example="/wechat/sogou/qimao0908" path="/wechat/sogou/:id" :paramsDesc="['公众号 id, 打开 weixin.sogou.com 并搜索相应公众号， 在 URL 中找到 id']"/>
+
 ## 维基百科
 
 ### 中国大陆新闻动态
@@ -4196,6 +4276,32 @@ wechat-feeds 来源[已停止更新](https://github.com/hellodword/wechat-feeds/
 | (空)     | ms   | qg   | qz   |
 
 </Route>
+
+## 香港 01
+
+### 热门
+
+<Route author="hoilc Fatpandac nczitzk" example="/hk01/hot" path="/hk01/hot" radar="1" rssbud="1"/>
+
+### 栏目
+
+<Route author="hoilc Fatpandac nczitzk" example="/hk01/zone/11" path="/hk01/zone/:id" :paramsDesc="['栏目 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
+
+### 子栏目
+
+<Route author="hoilc Fatpandac nczitzk" example="/hk01/channel/391" path="/hk01/channel/:id" :paramsDesc="['子栏目 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
+
+### 专题
+
+<Route author="hoilc Fatpandac nczitzk" example="/hk01/issue/649" path="/hk01/issue/:id" :paramsDesc="['专题 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
+
+### 标签
+
+<Route author="hoilc Fatpandac nczitzk" example="/hk01/tag/2787" path="/hk01/tag/:id" :paramsDesc="['标签 id, 可在 URL 中找到']" radar="1" rssbud="1"/>
+
+### 即時
+
+<Route author="5upernove-heng" example="/hk01/latest" path="/hk01/latest" radar="1" rssbud="1"/>
 
 ## 香港高登
 
@@ -4359,11 +4465,61 @@ wechat-feeds 来源[已停止更新](https://github.com/hellodword/wechat-feeds/
 
 <Route author="nczitzk" example="/news/whxw" path="/news/whxw"/>
 
-## 新浪专栏
+## 新浪
 
-### 创事记
+### 科技 - 科学探索
 
-<Route author="xapool" example="/sina/csj" path="/sina/csj"/>
+<Route author="LogicJake" example="/sina/discovery/zx" path="/sina/discovery/:type" :paramsDesc="['订阅分区类型，见下表']" radar="1">
+
+| 最新 | 天文航空 | 动物植物 | 自然地理 | 历史考古 | 生命医学 | 生活百科 | 科技前沿 |
+| ---- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| zx   | twhk     | dwzw     | zrdl     | lskg     | smyx     | shbk     | kjqy     |
+
+</Route>
+
+### 滚动新闻
+
+<Route author="xyqfer" example="/sina/rollnews" path="/sina/rollnews/:lid?" :paramsDesc="['分区 id，可在 URL 中找到，默认为 `2509`']" radar="1">
+
+| 全部 | 国内 | 国际 | 社会 | 体育 | 娱乐 | 军事 | 科技 | 财经 | 股市 | 美股 |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 2509 | 2510 | 2511 | 2669 | 2512 | 2513 | 2514 | 2515 | 2516 | 2517 | 2518 |
+
+</Route>
+
+### 体育 - 综合
+
+<Route author="nczitzk" example="/sina/sports/volley" path="/sina/sports/:type" :paramsDesc="['运动类型，见下表']" radar="1">
+
+| 排球   | 游泳 | 乒乓球   | 羽毛球 | 台球    | 田径     | 体操  | 冰雪   | 射击 | 马术  | 拳击搏击 | UFC | 其他   |
+| ------ | ---- | -------- | ------ | ------- | -------- | ----- | ------ | ---- | ----- | -------- | --- | ------ |
+| volley | swim | pingpang | badmin | snooker | tianjing | ticao | winter | sh   | horse | kungfu   | ufc | others |
+
+</Route>
+
+### 财经－国內
+
+<Route author="yubinbai" example="/sina/finance/china" path="/sina/finance/china/:lid?" :paramsDesc="['分区 id，见下表，默认为 `1686`']" radar="1">
+
+| 国内滚动 | 宏观经济 | 金融新闻 | 地方经济 | 部委动态 | 今日财经 TOP10 |
+| -------- | -------- | -------- | -------- | -------- | -------------- |
+| 1686     | 1687     | 1690     | 1688     | 1689     | 3231           |
+
+</Route>
+
+### 美股
+
+<Route author="TonyRL" example="/sina/finance/stock/usstock" path="/sina/finance/stock/usstock/:cids?" :paramsDesc="['分区 id，见下表，默认为 `57045`']" radar="1">
+
+| 最新报道 | 中概股 | 国际财经 | 互联网 |
+| -------- | ------ | -------- | ------ |
+| 57045    | 57046  | 56409    | 40811  |
+
+</Route>
+
+### 专栏 - 创事记
+
+<Route author="xapool" example="/sina/csj" path="/sina/csj" radar="1"/>
 
 ## 选股宝
 

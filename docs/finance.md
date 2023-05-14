@@ -236,15 +236,15 @@ TokenInsight 官方亦有提供 RSS，可参考 <https://api.tokeninsight.com/re
 
 <Route author="nczitzk" example="/cls/depth/1000" path="/cls/depth/:category?" :paramsDesc="['分类代码，可在首页导航栏的目标网址 URL 中找到']" radar="1">
 
-| 头条 | 股市 | 港股 | 环球 | 公司 | 券商 | 基金 | 地产 | 金融 | 汽车 | 科创版 | 品见 | 期货 | 投教 |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ------ | ---- | ---- | ---- |
-| 1000 | 1003 | 1135 | 1007 | 1005 | 1118 | 1110 | 1006 | 1032 | 1119 | 1111   | 1160 | 1124 | 1176 |
+| 头条 | 股市 | 港股 | 环球 | 公司 | 券商 | 基金 | 地产 | 金融 | 汽车 | 科创 | 创业版 | 品见 | 期货 | 投教 |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ------ | ---- | ---- | ---- |
+| 1000 | 1003 | 1135 | 1007 | 1005 | 1118 | 1110 | 1006 | 1032 | 1119 | 1111 | 1127   | 1160 | 1124 | 1176 |
 
 </Route>
 
 ### 热门文章排行榜
 
-<Route author="5upernova-heng" example="/cls/hot" path="/cls/hot" radar="1"/>
+<Route author="5upernova-heng nczitzk" example="/cls/hot" path="/cls/hot" radar="1"/>
 
 ## 第一财经杂志
 
@@ -257,6 +257,10 @@ TokenInsight 官方亦有提供 RSS，可参考 <https://api.tokeninsight.com/re
 ### 天天基金用户动态
 
 <Route author="zidekuls" example="/eastmoney/ttjj/user/6551094298949188" path="/eastmoney/ttjj/user/:uid" :paramsDesc="['用户id, 可以通过天天基金App分享用户主页到浏览器，在相应的URL中找到']"/>
+
+### 搜索
+
+<Route author="drgnchan" example="/eastmoney/search/web3" path="/eastmoney/search/:keyword" :paramsDesc="['关键词，可以设置为自己需要检索的关键词']" radar="1"/>
 
 ## 法布财经
 
@@ -561,12 +565,6 @@ TokenInsight 官方亦有提供 RSS，可参考 <https://api.tokeninsight.com/re
 | stock_research | industry_research | strategy_research | macro_research | ipo_research |    brokerage_news    |
 
 </Route>
-
-## 新浪财经
-
-### 新浪财经－国內
-
-<Route author="yubinbai" example="/sina/finance" path="/sina/finance" />
 
 ## 雪球
 

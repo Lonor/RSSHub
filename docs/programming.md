@@ -302,7 +302,7 @@ GitHub 官方也提供了一些 RSS:
 
 <Route author="LanceZhu" example="/github/starred_repos/DIYgod" path="/github/starred_repos/:user" :paramsDesc="['用户名']" radar="1" rssbud="1"/>
 
-### 仓库 Contirbutors
+### 仓库 Contributors
 
 <Route author="zoenglinghou" example="/github/contributors/DIYgod/RSSHub" path="/github/contributors/:user/:repo/:order?/:anon?" :paramsDesc="['用户名', '仓库名', 'Commit 数量排序顺序，desc和asc（默认desc降序）', '是否包括匿名用户，默认不包含，任意值包含匿名用户']" radar="1" rssbud="1"/>
 
@@ -313,6 +313,14 @@ GitHub 官方也提供了一些 RSS:
 ### Wiki 历史
 
 <Route author="TonyRL" example="/github/wiki/flutter/flutter/Roadmap" path="/github/wiki/:user/:repo/:page?" :paramsDesc="['用户名', '仓库名', '页面 Slug，可在 URL 中找到，留空表示主页']" radar="1" rssbud="1"/>
+
+### 通知
+
+<Route author="zhzy0077" example="/github/notifications" path="/github/notifications" radar="1" rssbud="1" selfhost="1"/>
+
+### Gist Commits
+
+<Route author="TonyRL" example="/github/gist/d2c152bb7179d07015f336b1a0582679" path="/github/gist/:gistId" :paramsDesc="['Gist ID']" radar="1" rssbud="1"/>
 
 ## GitLab
 
@@ -346,13 +354,17 @@ GitHub 官方也提供了一些 RSS:
 
 ## Go 语言中文网
 
+### 板块
+
+<Route author="nczitzk" example="/studygolang/go/daily" path="/studygolang/go/:id?" :paramsDesc="['板块 id，默认为周刊']" radar="1"/>
+
 ### 周刊
 
-<Route author="Weilet" example="/go-weekly" path="/go-weekly"/>
+<Route author="Weilet nczitzk" example="/studygolang/weekly" path="/studygolang/weekly" radar="1"/>
 
 ### 招聘
 
-<Route author="CcccFz" example="/studygolang/jobs" path="/studygolang/jobs" radar="1" rssbud="1"/>
+<Route author="CcccFz nczitzk" example="/studygolang/jobs" path="/studygolang/jobs" radar="1" rssbud="1"/>
 
 ## GoCN
 
@@ -498,6 +510,12 @@ GitHub 官方也提供了一些 RSS:
 ### User Discussion
 
 <Route author="nczitzk" example="/kaggle/user/antgoldbloom" path="/kaggle/user/:user" :paramsDesc="['用户名']"/>
+
+## Layer3
+
+### Quest
+
+<Route author="nczitzk" example="/layer3/quests" path="/layer3/quests" radar="1"/>
 
 ## LeetCode
 

@@ -194,6 +194,10 @@ pageClass: routes
 
 <Route author="Derekmini auto-bot-ty" example="/ieee/journal/78/recent" path="/ieee/journal/:journal/recent/:sortType?" :paramsDesc="['期刊代码，URL 中 `punumber` 部分','排序方式，默认`vol-only-seq`，URL 中 `sortType` 部分']" radar="1" rssbud="1"/>
 
+### 预印版
+
+<Route author="5upernova-heng" example="/ieee/journal/5306045/earlyaccess" path="/ieee/journal/:journal/earlyaccess/:sortType?" :paramsDesc="['发布代码，URL 中 `isnumber` 部分','排序方式，默认`vol-only-seq`，URL 中 `sortType` 部分']" radar="1" rssbud="1"/>
+
 ## INFORMS
 
 ### 类型
@@ -411,6 +415,46 @@ You can get all short name of a journal from <https://www.nature.com/siteindex> 
 <Route author="xraywu" example="/stork/keyword/409159/R4j3Hbn5ia" path="/stork/keyword/:trackID/:displayKey" :paramsDesc="['关键词订阅 URL 上的 trackID 参数','关键词订阅 URL 上的  displayKey 参数']">
 
 在 Stork 上注册并订阅关键词后，在 `我的` -> `关键词` 中可找到对应关键词的订阅 URL。URL 后的两个参数即为路由参数。
+
+</Route>
+
+## Telecompaper
+
+### News
+
+<Route author="nczitzk" example="/telecompaper/news/mobile/2020/China/News" path="/telecompaper/news/:caty/:year?/:country?/:type?" :paramsDesc="['分类，见下表', '年份，可在所选分类页中 Filter 的 `Years` 选择器中选择相应年份，不限年份则填入 `all`，默认为不限', '国家或大洲，可在所选分类页中 Filter 的 `Countries` 选择器中选择相应国家或大洲，不限国家或大洲则填入 `all`，默认为不限', '类型，可在所选分类页中 Filter 的 `Types` 选择器中选择相应类型，不限类型则填入 `all`，默认为不限']">
+
+可选分类如下
+
+| WIRELESS | BROADBAND | VIDEO     | GENERAL | IT | INDUSTRY RESOURCES |
+| -------- | --------- | --------- | ------- | -- | ------------------ |
+| mobile   | internet  | boardcast | general | it | industry-resources |
+
+::: tip 提示
+
+若 `country` 或 `type` 参数包含空格，则用 `-` 替代。如 `United States` 更换为 `United-States`，`White paper` 更换为 `White-paper`
+
+[INDUSTRY RESOURCES](https://www.telecompaper.com/industry-resources) 分类页的 Filter 仅提供了 `Content Type` 选择器，对应路由中 `type` 参数。`year` 和 `country` 参数则对该分类无效。
+
+:::
+
+</Route>
+
+### Search
+
+<Route author="nczitzk" example="/telecompaper/search/Nokia" path="/telecompaper/search/:keyword?/:company?/:sort?/:period?" :paramsDesc="['关键词', '公司名，默认为不限', '排序，见下表，默认为 Date Descending', '发表在时间段内，默认为 12 months']">
+
+排序
+
+| Date Ascending | Date Descending |
+| -------------- | --------------- |
+| 1              | 2               |
+
+发表在时间段内
+
+| 1 month | 3 months | 6 months | 12 months | 24 months |
+| ------- | -------- | -------- | --------- | --------- |
+| 1       | 3        | 6        | 12        | 24        |
 
 </Route>
 
